@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:practicing_app/main.dart';
 import 'package:practicing_app/modules/favorites/favorites_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../models/book_model/book_models.dart';
 import '../../models/books/book_model.dart';
 // import '../../models/book_model/book_models.dart';
@@ -20,6 +19,7 @@ class BookDetailsScreen extends StatefulWidget {
 
 class _BookDetailsScreenState extends State<BookDetailsScreen> {
   bool isFavorite = false;
+
   @override
   void initState() {
     super.initState();
@@ -90,19 +90,19 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         // child: widget.book.bookImage
                       ),
                       Container(
-                        width: 200.0,
-                        height: 250.0,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(2, 2),
-                              blurRadius: 6,
-                            ),
-                          ],
-                        ),
+                          width: 200.0,
+                          height: 250.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(2, 2),
+                                blurRadius: 6,
+                              ),
+                            ],
+                          ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: widget.book.bookImage,
@@ -137,7 +137,6 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
               ],
             ),
           ),
-        ),
       ),
     );
   }

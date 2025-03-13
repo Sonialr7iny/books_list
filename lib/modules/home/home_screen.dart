@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/book_model/book_models.dart';
-import '../../models/books/book_model.dart';
+// import '../../models/books/book_model.dart';
 import '../../shared/components/books_items.dart';
 // import 'package:practicing_app/models/books/book_model.dart';
 
@@ -51,22 +51,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: 500.0,
-                child: ListView.separated(
-                    itemBuilder: (context, index) => buildBookItem(books[index]),
-                    separatorBuilder: (context, index) => Container(
-                          width: double.infinity,
-                          color: Colors.white,
-                          height: 1.0,
-                        ),
-                    itemCount: books.length),
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 500.0,
+              child: ListView.separated(
+                  itemBuilder: (context, index) => buildBookItem(books[index]),
+                  separatorBuilder: (context, index) => Container(
+                        width: double.infinity,
+                        color: Colors.white,
+                        height: 1.0,
+                      ),
+                  itemCount: books.length),
+            ),
+          ],
         ),
       ),
     );

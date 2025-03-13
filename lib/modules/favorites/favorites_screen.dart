@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:practicing_app/main.dart';
+import 'package:practicing_app/modules/book_details/book_details_screen.dart';
+// import 'package:practicing_app/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/books/book_model.dart';
 
@@ -15,8 +19,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Future<List<BookModel>> getFavoriteBooks() async {
     final prefs = await SharedPreferences.getInstance();
     List<String> favoriteBookIds = prefs.getStringList('favorites') ?? [];
-    print('All Books Passed to FavoritesScreen: ${widget.allBooks.map((book) => book.id).toList()}');
-    print('Favorite Book IDs from SharedPreferences: $favoriteBookIds');
+    if (kDebugMode) {
+      print('All Books Passed to FavoritesScreen: ${widget.allBooks.map((book) => book.id).toList()}');
+    }
+    if (kDebugMode) {
+      print('Favorite Book IDs from SharedPreferences: $favoriteBookIds');
+    }
     // Filter allBooks to include only the ones marked as favorites
     return widget.allBooks.where((book) => favoriteBookIds.contains(book.id.toString())).toList();
   }
@@ -25,7 +33,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorite Books"),
+        title: Text("Favorite Books",),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20.0,)),
       ),
       body: FutureBuilder<List<BookModel>>(
         future: getFavoriteBooks(), // Get the favorite books
@@ -34,7 +45,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             return Center(child: CircularProgressIndicator()); // Loading spinner
           }
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-            print('Filtered Favorite Books: ${snapshot.data!.map((book) => book.name).toList()}');
+            if (kDebugMode) {
+              print('Filtered Favorite Books: ${snapshot.data!.map((book) => book.name).toList()}');
+            }
             // print('All Books in FavoritesScreen: ${widget.allBooks.length}');
             // print('Filtered Favorite Books: ${snapshot.data!.length}');
             return ListView.builder(
@@ -46,8 +59,11 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   subtitle: Text(book.author),
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: book.bookImage, // Show book image
+                    child:Image.asset(book.imagePath) // Show book image
                   ),
+                  onTap: (){
+                    navigatorKey.currentState?.push(MaterialPageRoute(builder: (context)=>BookDetailsScreen(book: book)));
+                  },
                 );
               },
             );
