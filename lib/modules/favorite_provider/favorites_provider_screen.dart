@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:practicing_app/modules/book_details_provider/book_details_provider_shared.dart';
+
 import 'package:provider/provider.dart';
 
-import '../../main.dart';
 import '../../models/provider_/provider.dart';
 
 class FavoritesScreenProvider extends StatelessWidget {

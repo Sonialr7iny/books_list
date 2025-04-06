@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:practicing_app/main.dart';
 import 'package:practicing_app/modules/favorites/favorites_screen.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/book_model/book_models.dart';
 import '../../models/books/book_model.dart';
@@ -40,8 +42,10 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
         title: Text('Details'),
         leading: IconButton(
           onPressed: () {
+            // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeGridviewScreen()));
             Navigator.pop(context);
           },
+
           icon: Icon(Icons.arrow_back_ios_rounded),
           iconSize: 20.0,
         ),
@@ -49,16 +53,15 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
           IconButton(
             onPressed: () {
               navigatorKey.currentState?.push(MaterialPageRoute(
-                  builder: (context) => FavoritesScreen(allBooks:books)));
-
+                  builder: (context) => FavoritesScreen(allBooks: books)));
             },
             icon: Icon(Icons.favorite_outlined),
             color: Colors.black,
             iconSize: 20.0,
-          )
+          ),
         ],
       ),
-      body: Center(
+      body:Center(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -103,14 +106,22 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                               ),
                             ],
                           ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: widget.book.bookImage,
-                        ),
+                          child:
+                              // ClipRRect(
+                              //   borderRadius: BorderRadius.circular(12),
+                              //   child: widget.book.bookImage,
+                              // ),
+
+                              Hero(
+                            tag: 'book_${widget.book.id}',
+                                transitionOnUserGestures: true,
+                            child: Image.asset(widget.book.imagePath)
+                          ),
                       ),
                     ],
                   ),
                 ),
+
                 IconButton(
                   onPressed: () async {
                     // Toggle favorite in SharedPreferences
@@ -119,8 +130,22 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                     // Update UI by fetching the latest favorite state
                     List<String> favoriteBooks = await getFavoriteBooks();
                     setState(() {
-                      isFavorite = favoriteBooks
-                          .contains(widget.book.id.toString()); // Update isFavorite
+                      isFavorite = favoriteBooks.contains(
+                          widget.book.id.toString()); // Update isFavorite
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          // dismissDirection: DismissDirection.startToEnd,
+                          content: isFavorite
+                              ? Text('Add to favorites is done ')
+                              : Text('Remove from favorites is done '),
+                          shape: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gapPadding: 30.0,
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                          // onVisible: () => Alignment.topLeft,
+                        ),
+                      );
                     });
                   },
                   icon: isFavorite
@@ -137,6 +162,8 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
               ],
             ),
           ),
+
+        )
       ),
     );
   }
@@ -152,12 +179,15 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
     }
 
     await prefs.setStringList('favorites', favoriteBooks); // Save updated list
-    print('Favorite Books in SharedPreferences: $favoriteBooks');
-
+    if (kDebugMode) {
+      print('Favorite Books in SharedPreferences: $favoriteBooks');
+    }
   }
 
   Future<List<String>> getFavoriteBooks() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getStringList('favorites') ?? [];
+
   }
 }
+

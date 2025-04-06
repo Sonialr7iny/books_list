@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:practicing_app/main.dart';
 import 'package:practicing_app/models/books/book_model.dart';
-import 'package:practicing_app/modules/book_details/book_details_screen.dart';
 import 'package:provider/provider.dart';
-
 import '../../models/provider_/provider.dart';
-import '../../modules/book_details_provider/book_details_provider_shared.dart';
 
 Widget bookItems(BookModel book,bool isDarkMode) =>
     Consumer<BooksProvider>(builder: (context, provider, child) {
