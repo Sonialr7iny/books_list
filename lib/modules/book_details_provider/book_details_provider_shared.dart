@@ -1,14 +1,14 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:practicing_app/main.dart';
+
 import 'package:practicing_app/modules/home_gridview/home_gridview_screen.dart';
 
 import 'package:provider/provider.dart';
 
 import '../../models/books/book_model.dart';
 import '../../models/provider_/provider.dart';
-import '../favorite_provider/favorites_provider_screen.dart';
+
 
 
 class BookDetailsScreenProvider extends StatefulWidget {

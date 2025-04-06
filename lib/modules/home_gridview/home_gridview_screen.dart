@@ -1,9 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:practicing_app/models/books/book_model.dart';
-import 'package:practicing_app/shared/components/shared_preferences_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../models/book_model/book_models.dart';
 import '../../shared/components/book_items_gridview.dart';
 
 class HomeGridviewScreen extends StatefulWidget {
@@ -24,7 +21,7 @@ class _HomeGridviewScreenState extends State<HomeGridviewScreen> {
   List<BookModel> filteredBooks = [];
   TextEditingController txtController = TextEditingController();
   final FocusNode searchFocusNode = FocusNode();
-  List<BookModel> Books = [];
+  List<BookModel> books = [];
   bool isDarkMode = true;
 
   @override
@@ -68,12 +65,18 @@ class _HomeGridviewScreenState extends State<HomeGridviewScreen> {
 
           IconButton(onPressed: () {
             widget.toggleTheme(!widget.isDarkMode);
-            print("Is Dark Mode: ${widget.isDarkMode}"); // Debugging
+            if (kDebugMode) {
+              print("Is Dark Mode: ${widget.isDarkMode}");
+            } // Debugging
             setState(() {
-              print("Is Dark Mode: ${widget.isDarkMode}"); // Debugging
+              if (kDebugMode) {
+                print("Is Dark Mode: ${widget.isDarkMode}");
+              } // Debugging
               isDarkMode = widget.isDarkMode;
             });
-            print("Is Dark Mode: ${widget.isDarkMode}"); // Debugging
+            if (kDebugMode) {
+              print("Is Dark Mode: ${widget.isDarkMode}");
+            } // Debugging
           }, icon:isDarkMode? Icon(Icons.light_mode):Icon(Icons.dark_mode),
           ),
         ],
@@ -118,7 +121,9 @@ class _HomeGridviewScreenState extends State<HomeGridviewScreen> {
                   ),
                 ),
                 onChanged: (query) {
-                  print(query);
+                  if (kDebugMode) {
+                    print(query);
+                  }
                   setState(() {
                     filteredBooks = books
                         .where((book) =>

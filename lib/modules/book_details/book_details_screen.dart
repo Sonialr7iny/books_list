@@ -2,9 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:practicing_app/main.dart';
 import 'package:practicing_app/modules/favorites/favorites_screen.dart';
-import 'package:practicing_app/modules/home/home_screen.dart';
-import 'package:practicing_app/modules/home_gridview/home_gridview_screen.dart';
-// import 'package:provider/provider.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/book_model/book_models.dart';
 import '../../models/books/book_model.dart';

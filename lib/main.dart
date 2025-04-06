@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:practicing_app/models/book_model/book_models.dart';
 import 'package:practicing_app/shared/components/shared_preferences_helper.dart';
 import 'package:provider/provider.dart';
 // import 'package:practicing_app/models/book_model/book_models.dart';
@@ -10,7 +9,6 @@ import 'package:provider/provider.dart';
 // import 'modules/book_details/book_details_screen.dart';
 // import 'modules/home/home_screen.dart';
 // import 'models/provider/provider_basic.dart';
-import 'models/books/book_model.dart';
 import 'models/provider_/provider.dart';
 import 'modules/book_details_provider/book_details_provider_shared.dart';
 import 'modules/favorite_provider/favorites_provider_screen.dart';
@@ -72,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               ),
             );
           case '/details':
-            final book = settings.arguments as BookModel;
+            // final book = settings.arguments as BookModel;
             return MaterialPageRoute(
               builder: (context) => BookDetailsScreenProvider(
                 isDarkMode: _isDarkMode,
