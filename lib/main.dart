@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
       themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
-      initialRoute: 'HomeGridview',
+      // initialRoute: 'HomeGridview',
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case 'HomeGridview':
@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
       //   useMaterial3: true,
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       // ),
-      home:HomeGridviewScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
+      home: HomeGridviewScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
       // BookDetailsScreen(
       //     book: BookModel(
       //   id: 1,
