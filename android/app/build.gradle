@@ -5,8 +5,8 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 dependencies {
-    implementation "androidx.core:core-ktx:1.15.0"
-    implementation "io.flutter:flutter_embedding_debug:1.0.0" // Ensure this exists
+    implementation libs.core.ktx
+    implementation libs.flutter.embedding.debug // Ensure this exists
 }
 
 android {
