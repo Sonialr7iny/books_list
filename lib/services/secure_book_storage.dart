@@ -1,6 +1,5 @@
 // lib/services/secure_book_storage.dart
 import 'dart:convert';
-import 'dart:typed_data'; // For Uint8List
 import 'package:encrypt/encrypt.dart' as encrypt_package;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:practicing_app/models/books/book_model.dart'; // Adjust path if needed
@@ -74,7 +73,7 @@ class SecureBookStorage {
     // --- CHOOSE KEY STRATEGY ---
     // Using Strategy 1 (Hardcoded) for this direct integration example
     final key = _demoKey;
-    final iv = _demoIV;
+    // final iv = _demoIV;
 
     // If using Strategy 2 (FlutterSecureStorage)
     // final key = await EncryptionKeyManager.getKey();
