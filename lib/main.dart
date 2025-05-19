@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practicing_app/modules/home_gridview_encrypt/home_gridview_encrypt_screen.dart';
 import 'package:practicing_app/shared/components/shared_preferences_helper.dart';
 import 'package:provider/provider.dart';
 // import 'package:practicing_app/models/book_model/book_models.dart';
@@ -84,7 +85,7 @@ class _MyAppState extends State<MyApp> {
             );
           default:
             return MaterialPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => HomeScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
             );
         }
       },
@@ -92,7 +93,9 @@ class _MyAppState extends State<MyApp> {
       //   useMaterial3: true,
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       // ),
-      home: HomeGridviewScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
+      home: HomeGridviewScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode,),
+      // HomeGridviewEncryptScreen(toggleTheme: toggleTheme, isDarkMode: _isDarkMode)
+      //
       // BookDetailsScreen(
       //     book: BookModel(
       //   id: 1,
