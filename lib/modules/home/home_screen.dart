@@ -6,7 +6,15 @@ import '../../shared/components/books_items.dart';
 // import 'package:practicing_app/models/books/book_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final Function(bool) toggleTheme;
+  final bool isDarkMode;
+
+  const HomeScreen({
+    super.key,
+    required this.toggleTheme,
+    required this.isDarkMode,
+  });
+  // const HomeScreen({super.key, required this.toggleTheme, required this.isDarkMode});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

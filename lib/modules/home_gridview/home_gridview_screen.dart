@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:practicing_app/models/books/book_model.dart';
+import '../../models/book_model/book_models.dart';
 import '../../shared/components/book_items_gridview.dart';
 
 class HomeGridviewScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomeGridviewScreenState extends State<HomeGridviewScreen> {
   List<BookModel> filteredBooks = [];
   TextEditingController txtController = TextEditingController();
   final FocusNode searchFocusNode = FocusNode();
-  List<BookModel> books = [];
+  // List<BookModel> books = [];
   bool isDarkMode = true;
 
   @override
@@ -53,7 +54,8 @@ class _HomeGridviewScreenState extends State<HomeGridviewScreen> {
   @override
   void initState() {
     super.initState();
-    filteredBooks = books;
+    filteredBooks =
+        books;
   }
 
   @override

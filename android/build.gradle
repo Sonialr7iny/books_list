@@ -6,6 +6,26 @@ allprojects {
     }
 }
 
+buildscript {
+    ext.kotlin_version = '1.9.22'
+
+//    ext.kotlin_version = '1.7.20' // Example version, use your actual version
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath libs.gradle // Example version
+        classpath libs.kotlin.gradle.plugin.v1822
+//        implementation libs.design
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.work:work-runtime:2.6.0'
+    }
+}
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
@@ -17,3 +37,8 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+
+
+
+

@@ -4,16 +4,26 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
+//dependencies {
+//    //noinspection UseTomlInstead
+////    implementation 'io.flutter:flutter_embedding_android:3.29.3'
+//    implementation libs.core.ktx
+////    implementation libs.flutter.embedding.debug // Ensure this exists
+//}
 dependencies {
-    implementation libs.core.ktx
-    implementation libs.flutter.embedding.debug // Ensure this exists
+    implementation libs.kotlin.stdlib.jdk7
+
+    // Add this line if it's missing or incorrect
+//    implementation libs.commons.text // Or the latest version
+    implementation libs.commons.text.v1100 // Or latest
 }
 
 android {
     namespace = "com.example.practicing_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-    ndkVersion = "27.0.12077973"
+    ndkVersion = "28.0.13004108"
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
