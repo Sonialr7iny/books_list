@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practicing_app/main.dart';
 import 'package:practicing_app/models/books/book_model.dart';
-import 'package:practicing_app/modules/home/home_screen.dart';
-
 import '../../modules/book_details/book_details_screen.dart';
 
 Widget buildBookItem(BookModel book) => Container(
@@ -27,7 +25,7 @@ Widget buildBookItem(BookModel book) => Container(
               ),
               height: 200.0,
               // width: 100.0,
-              child: book.bookImage,
+              child: Text(book.imagePath),
 
             ),
           ),
