@@ -24,8 +24,13 @@ Widget buildBookItem(BookModel book) => Container(
                 ],
               ),
               height: 200.0,
+        // width: 100.0,
+              // في buildBookItem:
+              child: Hero(
+                tag: 'book_${book.id}',
+                child:Image.asset(book.imagePath)
+              ),
               // width: 100.0,
-              child: Text(book.imagePath),
 
             ),
           ),
