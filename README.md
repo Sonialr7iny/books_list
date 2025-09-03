@@ -41,7 +41,7 @@ lib/
 ---
 
 ## 📸 Screenshots
-![Book List App](screenshots/book_list.png)
+![Book List App](screenshots/book_list_app.png)
 ![Idea App](screenshots/idea.png)
 
 ---
