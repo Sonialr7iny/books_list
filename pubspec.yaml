@@ -90,7 +90,7 @@ flutter:
   fonts:
     - family: BlackChancery
       fonts:
-        - asset: assets/fonts/BLKCHCRY.TTF
+        - asset: assets/fonts/BLKCHCRY.ttf
 
 #    - family: Schyler
 #      fonts:
