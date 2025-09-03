@@ -7,19 +7,16 @@ import 'package:flutter/material.dart';
 import '../../models/books/book_model.dart';
 
 Widget bookItemss(BookModel_ book, bool isDarkMode, {Function(BookModel_ updatedBook)? onFavChanged}) {
-  // ... your existing item UI ...
-  return GestureDetector( // Or InkWell
+  return GestureDetector(
     // ...
     child: Column(
       // ...
       children: [
-        // ... your image, title, author ...
         IconButton(
           icon: Icon(book.isFav ? Icons.favorite : Icons.favorite_border),
           color: book.isFav ? Colors.red : null,
           onPressed: () {
             if (onFavChanged != null) {
-              // Create a new BookModel instance with the toggled isFav status
               BookModel_ updatedBook = book.copyWith(isFav: !book.isFav);
               onFavChanged(updatedBook);
             }
