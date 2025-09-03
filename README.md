@@ -45,9 +45,10 @@ lib/
 
 ---
 
-## 📸 Screenshots (Optional)
-![Book_List_App](screenshots/Book_List_app_.png)
-![idea_App](screenshots/فكرة التطبيق.png)
+## 📸 Screenshots
+![Book List App](screenshots/book_list_app_.png)
+![Idea App](screenshots/idea.png)
+
 
 ---
 
