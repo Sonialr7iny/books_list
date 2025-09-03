@@ -60,4 +60,4 @@ This project was built as part of my Flutter learning journey, focusing on:
 ## 📬 Contact
 If you’d like to connect:  
 - GitHub: [Sonialr7iny](https://github.com/Sonialr7iny)  
-- LinkedIn: [[Soniaalra7ini](www.linkedin.com/in/sonia-alr7ini-663832325)  ](https://www.linkedin.com/in/sonia-alr7ini-663832325)
+- LinkedIn: [Soniaalra7ini](https://www.linkedin.com/in/sonia-alr7ini-663832325)
